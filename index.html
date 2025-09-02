@@ -1,0 +1,197 @@
+<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration - Login</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #380b68, #1b58c1);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Container */
+        .container {
+            width: 500px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Tabs */
+        .tab-buttons {
+            display: flex;
+            background: #3779ec;
+        }
+
+        .tab-buttons button {
+            flex: 1;
+            padding: 15px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .tab-buttons button:hover, .tab-buttons button.active {
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 25px;
+            animation: slideIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(49, 114, 255, 0.5);
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background: #3779ec;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background: #7c14ec;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes slideIn {
+            from {opacity: 0; transform: translateX(-20px);}
+            to {opacity: 1; transform: translateX(0);}
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <h2>This is a Course Registration Website</h2>
+
+    <div class="container">
+        <!-- Tab Buttons -->
+        <div class="tab-buttons">
+            <button class="active" onclick="showTab(event, 'student')">Student</button>
+            <button onclick="showTab(event, 'teacher')">Teacher</button>
+            <button onclick="showTab(event, 'admin')">Admin</button>
+        </div>
+
+        <!-- Student Login -->
+        <div id="student" class="tab-content active">
+            <h3>Student Login</h3>
+            <form action="StudentServlet" method="post">
+                <label for="studentReg">Registration No:</label>
+                <input type="text" id="studentReg" name="reg" placeholder="Enter Registration No">
+
+                <label for="studentPass">Password:</label>
+                <input type="password" id="studentPass" name="studentPass" placeholder="Enter Password">
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Teacher Login -->
+        <div id="teacher" class="tab-content">
+            <h3>Teacher Login</h3>
+            <form action="TeacherServlet" method="post">
+                <label for="teacherId">Teacher ID:</label>
+                <input type="text" id="teacherId" name="teacherId" placeholder="Enter Teacher ID">
+
+                <label for="teacherPass">Password:</label>
+                <input type="password" id="teacherPass" name="teacherPass" placeholder="Enter Password">
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="admin" class="tab-content">
+            <h3>Admin Login</h3>
+            <form action="AdminServlet" method="post">
+                <label for="adminId">Admin ID:</label>
+                <input type="text" id="adminId" name="adminId" placeholder="Enter Admin ID">
+
+                <label for="adminPass">Password:</label>
+                <input type="password" id="adminPass" name="adminPass" placeholder="Enter Password">
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(event, tabId) {
+            // Hide all tab content
+            var tabs = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            // Remove active state from buttons
+            var buttons = document.getElementsByClassName("tab-buttons")[0].getElementsByTagName("button");
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove("active");
+            }
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
