@@ -5,19 +5,39 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
     <servlet>
-        <servlet-name>StudentServlet</servlet-name>
-        <servlet-class>StudentServlet</servlet-class>
+        <servlet-name>StudentLoginServlet</servlet-name>
+        <servlet-class>StudentLoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>StudentServlet</servlet-name>
-        <url-pattern>/StudentServlet</url-pattern>
+        <servlet-name>StudentLoginServlet</servlet-name>
+        <url-pattern>/StudentLoginServlet</url-pattern>
     </servlet-mapping>
 
-    
+    <servlet>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>AdminLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TeacherLoginServlet</servlet-name>
+        <servlet-class>TeacherLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TeacherLoginServlet</servlet-name>
+        <url-pattern>/TeacherLoginServlet</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -134,7 +134,7 @@
         <!-- Student Login -->
         <div id="student" class="tab-content active">
             <h3>Student Login</h3>
-            <form action="StudentServlet" method="post">
+            <form action="StudentLoginServlet" method="post">
                 <label for="studentReg">Registration No:</label>
                 <input type="text" id="studentReg" name="reg" placeholder="Enter Registration No">
 
@@ -151,7 +151,7 @@
         <!-- Teacher Login -->
         <div id="teacher" class="tab-content">
             <h3>Teacher Login</h3>
-            <form action="TeacherServlet" method="post">
+            <form action="TeacherLoginServlet" method="post">
                 <label for="teacherId">Teacher ID:</label>
                 <input type="text" id="teacherId" name="teacherId" placeholder="Enter Teacher ID">
 
@@ -165,7 +165,7 @@
         <!-- Admin Login -->
         <div id="admin" class="tab-content">
             <h3>Admin Login</h3>
-            <form action="AdminServlet" method="post">
+            <form action="AdminLoginServlet" method="post">
                 <label for="adminId">Admin ID:</label>
                 <input type="text" id="adminId" name="adminId" placeholder="Enter Admin ID">
 
